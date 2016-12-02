@@ -18,7 +18,7 @@ pool_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,i
   is.multithread = F
   spec=rep("localhost",4)
 
-  require(data.table);require(RcppEigen)
+  require(RcppEigen);library(glmnet);library(bit64);library(data.table)
   # var.group=as.data.table(var.group)
 
   # format independent variables and dependent variables
