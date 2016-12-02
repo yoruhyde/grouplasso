@@ -6,8 +6,9 @@
 If a variable has two very stong lags, then delete one of these 2 lag to let more variables in}
 \usage{
 pool_lasso_reg(dep, actual, w, date.var, date.start, date.end, group, data,
-  indepvar, is.plot = T, is.weights = T, is.intercept = T,
-  is.multithread = F, spec = rep("localhost", 4))
+  indepvar, var.group = var.group, date.group = date.group, is.plot = T,
+  is.weights = T, is.intercept = T, is.multithread = F,
+  spec = rep("localhost", 4))
 }
 \description{
 Use pool lasso regression to do variable selection,
