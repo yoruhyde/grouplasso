@@ -1,3 +1,6 @@
+require(devtools)
+install_github('yoruhyde/grouplasso')
+library(grouplasso) # load package
 
 library(glmnet);library(bit64);library(data.table)
 setwd("C:\\Users\\yuemeng1\\Desktop\\code\\grouplasso\\data")
@@ -23,6 +26,8 @@ lasso_run=pool_lasso_reg(dep="sales_i",
                          group="dmanum",
                          data=data,
                          indepvar=indepvar,
+                         var.group=var.group,
+                         date.group=date.group,
                          is.plot=T,is.weights = T,is.intercept = T,is.multithread = F,spec=rep("localhost",4))
 
 plot(lasso_run$fit)
@@ -52,6 +57,8 @@ lasso_dma=loop_lasso_reg(dep="sales_i",
                          group="dmanum",
                          data=data,
                          indepvar=indepvar,
+                         var.group=var.group,
+                         date.group=date.group,
                          is.plot=F,is.weights = T,is.intercept = T,is.multithread = F,spec=rep("localhost",4))
 
 

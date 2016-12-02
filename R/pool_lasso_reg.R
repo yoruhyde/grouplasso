@@ -1,7 +1,7 @@
 #' Use pool lasso regression to do variable selection,
 #' If a variable has two very stong lags, then delete one of these 2 lag to let more variables in
 #' @export
-pool_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,indepvar,
+pool_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,indepvar,var.group=var.group,date.group=date.group,
                           is.plot=T,is.weights = T,is.intercept = T,is.multithread = F,spec=rep("localhost",4)) {
   # dep="sales"
   # actual="sales"

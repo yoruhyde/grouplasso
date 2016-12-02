@@ -1,5 +1,5 @@
 #' @export
-loop_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,indepvar,
+loop_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,indepvar,var.group=var.group,date.group=date.group,
                           is.plot=F,is.weights = F,is.intercept = T,is.multithread = F,spec=rep("localhost",4)) {
 
   # dep="sales"
