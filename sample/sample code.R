@@ -71,3 +71,5 @@ a=post_calc_lasso(data=data,
                   is.graph=T)
 
 runApp(a$app)
+
+devtools::document()

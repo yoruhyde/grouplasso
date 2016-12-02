@@ -3,23 +3,23 @@
 #' @export
 pool_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,indepvar,var.group=var.group,date.group=date.group,
                           is.plot=T,is.weights = T,is.intercept = T,is.multithread = F,spec=rep("localhost",4)) {
-  # dep="sales"
-  # actual="sales"
-  # w="sales_m"
-  # date.var="week"
-  # date.start="2015-01-01"
-  # date.end="2015-02-21"
-  # group=c("dmanum")
-  # data=data
-  # indepvar=c("twi","twi_lag1","twi_lag2","ggtrend","ggtrend_lag1","ggtrend_lag2","wt","wt_lag1","wt_lag2")
-  # is.plot=T
-  # is.weights = T
-  # is.intercept = T
-  # is.multithread = F
-  # spec=rep("localhost",4)
+  dep="sales"
+  actual="sales"
+  w="sales_m"
+  date.var="week"
+  date.start="2015-01-01"
+  date.end="2015-02-21"
+  group=c("dmanum")
+  data=data
+  indepvar=c("twi","twi_lag1","twi_lag2","ggtrend","ggtrend_lag1","ggtrend_lag2","wt","wt_lag1","wt_lag2")
+  is.plot=T
+  is.weights = T
+  is.intercept = T
+  is.multithread = F
+  spec=rep("localhost",4)
 
   require(data.table);require(RcppEigen)
-  var.group=as.data.table(var.group)
+  # var.group=as.data.table(var.group)
 
   # format independent variables and dependent variables
   index=data[[date.var]]>=date.start & data[[date.var]]<=date.end
@@ -45,7 +45,7 @@ pool_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,i
   # select the coefficient when no duplicated variables in the model
   coef_select=coefmatrix[,c(indepvar),with=F]
   for(i in 1:ncol(coef_select)) {
-    varanme=var.group[variable==colnames(coef_select)[i]]$variable_name
+    varanme=var.group[variable==colnames(coef_select)[i],variable_name]
     temp=paste(colnames(coef_select)[i],":=ifelse(",colnames(coef_select)[i],"==0,'0',varanme)")
     expr=parse(text=temp)
     coef_select[,eval(expr)]
