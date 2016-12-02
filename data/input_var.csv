@@ -1,0 +1,11 @@
+variable,variable_name,group1
+twi,Twitter,Twitter
+twi_lag1,Twitter,Twitter
+twi_lag2,Twitter,Twitter
+ggtrend,GoogleTrend,GoogleTrend
+ggtrend_lag1,GoogleTrend,GoogleTrend
+ggtrend_lag2,GoogleTrend,GoogleTrend
+wt,WebTraffic,WebTraffic
+wt_lag1,WebTraffic,WebTraffic
+wt_lag2,WebTraffic,WebTraffic
+int,Intecept,Intecept
