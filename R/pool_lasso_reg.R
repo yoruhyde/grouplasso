@@ -19,6 +19,7 @@ pool_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,i
   # spec=rep("localhost",4)
 
   require(data.table);require(RcppEigen)
+  var.group=as.data.table(var.group)
 
   # format independent variables and dependent variables
   index=data[[date.var]]>=date.start & data[[date.var]]<=date.end
