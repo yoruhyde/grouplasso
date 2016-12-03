@@ -3,20 +3,20 @@
 #' @export
 pool_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,indepvar,var.group=var.group,date.group=date.group,
                           is.plot=T,is.weights = T,is.intercept = T,is.multithread = F,spec=rep("localhost",4)) {
-  dep="sales"
-  actual="sales"
-  w="sales_m"
-  date.var="week"
-  date.start="2015-01-01"
-  date.end="2015-02-21"
-  group=c("dmanum")
-  data=data
-  indepvar=c("twi","twi_lag1","twi_lag2","ggtrend","ggtrend_lag1","ggtrend_lag2","wt","wt_lag1","wt_lag2")
-  is.plot=T
-  is.weights = T
-  is.intercept = T
-  is.multithread = F
-  spec=rep("localhost",4)
+  # dep="sales"
+  # actual="sales"
+  # w="sales_m"
+  # date.var="week"
+  # date.start="2015-01-01"
+  # date.end="2015-02-21"
+  # group=c("dmanum")
+  # data=data
+  # indepvar=c("twi","twi_lag1","twi_lag2","ggtrend","ggtrend_lag1","ggtrend_lag2","wt","wt_lag1","wt_lag2")
+  # is.plot=T
+  # is.weights = T
+  # is.intercept = T
+  # is.multithread = F
+  # spec=rep("localhost",4)
 
   require(RcppEigen);library(glmnet);library(bit64);library(data.table)
   # var.group=as.data.table(var.group)
