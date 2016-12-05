@@ -45,8 +45,9 @@ pool_lasso_reg = function(dep,actual,w,date.var,date.start,date.end,group,data,i
   # select the coefficient when no duplicated variables in the model
   coef_select=coefmatrix[,c(indepvar),with=F]
   for(i in 1:ncol(coef_select)) {
-    varname=var.group$variable_name[var.group$variable==colnames(coef_select)[i]]
-    # varanme=var.group[variable==colnames(coef_select)[i],variable_name]
+    require(data.table)
+    # varname=var.group$variable_name[var.group$variable==colnames(coef_select)[i]]
+    varanme=var.group[variable==colnames(coef_select)[i],variable_name]
     temp=paste(colnames(coef_select)[i],":=ifelse(",colnames(coef_select)[i],"==0,'0',varanme)")
     expr=parse(text=temp)
     coef_select[,eval(expr)]

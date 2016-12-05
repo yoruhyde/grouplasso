@@ -1,5 +1,5 @@
 require(devtools)
-install_github('yoruhyde/grouplasso')
+install_github('yoruhyde/grouplasso',force = TRUE)
 library(grouplasso) # load package
 
 library(glmnet);library(bit64);library(data.table)
@@ -7,8 +7,8 @@ setwd("C:\\Users\\yuemeng1\\Desktop\\code\\grouplasso\\data")
 
 
 data=fread("input_data.csv")
-var.group=fread("input_var.csv")
-date.group=fread("input_date_lkup.csv")
+var_group=fread("input_var.csv")
+date_group=fread("input_date_lkup.csv")
 
 data[,week:=as.Date(week,"%m/%d/%Y")]
 
@@ -26,8 +26,8 @@ lasso_run=pool_lasso_reg(dep="sales_i",
                          group="dmanum",
                          data=data,
                          indepvar=indepvar,
-                         var.group=var.group,
-                         date.group=date.group,
+                         var.group=var_group,
+                         date.group=date_group,
                          is.plot=T,is.weights = T,is.intercept = T,is.multithread = F,spec=rep("localhost",4))
 
 plot(lasso_run$fit)
